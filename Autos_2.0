@@ -1,0 +1,131 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <math.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+int main(int argc, char *argv[]) {
+	
+		FILE *file;
+		//float motor = 100, suspensao = 200, freio = 300;
+		float hora, valorHora,servico, valorDesconto;
+		int code = 1;
+		char nome[20], modelo[20], nomeser[20], job[10];
+		int opcao;
+		char sair;
+		
+		
+		while (sair = "sim"){
+		
+		printf ("=========================================================================\n");
+		printf ("                             AUTOS E AUTOMACAO\n");
+		printf ("=========================================================================\n");
+		printf ("       [1] SOLICITACAO DE SERVICO [2] FINAIZAR SERVICO] [3] SAIR\n");
+		scanf ("%d", &opcao);
+		
+		switch (opcao) {
+			case 1:
+				printf ("Digite o nome do solicitante\n");
+				scanf ("%s", &nome);
+				printf ("Digite o modelo do veiculo\n");
+				scanf ("%s", &modelo);
+				printf ("Digite o servico \n");
+				scanf ("%s", &job);
+				code++;
+				printf ("Dados da OS\n Solicitante %s\n Modelo %s\n Servico %s\n \n", nome, modelo, job);
+				file = fopen (nome, "w+t");
+				fprintf (file, "%s\n %s\n %s\n", nome, modelo, job);
+				fclose (file);
+				/*printf ("[1] Motor [2] Suspensao [3] Freio");
+				scanf ("%s", &opcao);
+					switch (opcao) {
+						case 1:
+							scanf ("%f", &motor);
+							code++;
+							printf ("Dados da OS\n Solicitante %s\n Modelo %s\n Servico %f\n \n", nome, modelo, motor);
+							file = fopen (nome, "w+t");
+							fprintf (file, "%s\n %s\n %f\n", nome, modelo, motor);
+							fclose (file);
+						break;
+						case 2:
+							scanf ("%f", &suspensao);
+							code++;
+							printf ("Dados da OS\n Solicitante %s\n Modelo %s\n Servico %f\n \n", nome, modelo, suspensao);
+							file = fopen (nome, "w+t");
+							fprintf (file, "%s\n %s\n %f\n", nome, modelo, suspensao);
+							fclose (file);
+						break;
+						case 3:
+							scanf ("%f", &freio);
+							code++;
+							printf ("Dados da OS\n Solicitante %s\n Modelo %s\n Servico %f\n \n", nome, modelo, freio);
+							file = fopen (nome, "w+t");
+							fprintf (file, "%s\n %s\n %f\n", nome, modelo, freio);
+							fclose (file);
+						break;
+						default: ("Selecione uma opcao valida");
+					}*/
+					
+				break;
+			case 2:
+				printf ("Digite o nome do cliente\n\n\n");
+				scanf  ("%s", &nome);
+			//	system ("cls");
+				file = fopen (nome, "r+");
+				fscanf (file, "%s\n %s\n %s\n %f\n %f\n", nome, modelo, job, valorHora, valorDesconto);
+				/*if (valorHora >= 1, valorHora) {
+					printf ("OS ja encerrada");
+				
+				}*/
+				//printf ("Nome do Cliente      = %s\n Modelo do Carro     = %s\n Servico requisitado = %s\n", nome, modelo, job);
+					if (job=="suspensao" || job=="Suspensao", job) {
+						servico =200;
+																   }
+					if (job=="motor" || job=="Motor", job) {
+						servico =100;
+																   }
+					if (job=="freio" || job=="Freio", job) {
+						servico =300;
+														   }
+					    printf ("\nDigite o numero de horas trabalhadas\n");
+						scanf  ("%f", &hora);
+						valorHora = (hora*servico);
+							if (valorHora <= 200) {
+								printf ("Valor Total do servico e: %2.f\n\n\n", valorHora);
+								//printf ("Valor Total do servico na suspensao e:");
+												 }
+							if (valorHora > 200 && valorHora <1000) {
+								valorDesconto = (valorHora*0.95);
+								printf ("Valor do servico e:%2.f\n", valorHora);
+								printf ("Valor do servico com desconto e: %2.f\n\n", valorDesconto);
+							     }
+							if (valorHora >=1000) {
+								valorDesconto = (valorHora*0.90);
+								printf ("Valor do servico e:%2.f\n", valorHora);
+								printf ("Valor do servico com desconto e: %2.f\n\n", valorDesconto);
+												  }
+							file = fopen (nome, "w+t");
+							fprintf (file, "%s\n %s\n %s\n %f\n %f", nome, modelo, job, valorHora, valorDesconto);
+							fclose (file);	
+										 
+										 
+										 
+										 
+				//printf ("Digite o numero de horas do serviço");
+				//scanf  ("%f", &horas);
+				//valorHora = horas * servico;
+				//printf ("O valor do serviço fica em:%2.f", valorHora);
+				
+				break;
+			case 3:
+				printf ("Aperte qualquer tecla pra sair");
+				exit(0);
+				
+		default :("Digite uma opcao valida");
+			   }
+		
+	
+	
+	
+	}
+	return 0;
+}
